@@ -50,7 +50,7 @@
       "subnetName": "App_Prod_eastus",
       "vmName": "NewWinVM",
       "virtualNetworkName": "vnet_prod_eastus",
-      "subnetRef": "[resourceId('Microsoft.Network/virtualNetworks/subnets', variables('virtualNetworkName'), variables('subnetName'))]",
+      "subnetRef": "[resourceId('Microsoft.Network/virtualNetworks/subnets', variables('virtualNetworkName'), variables('subnetName'))]"
     },
     "resources": [
      {
