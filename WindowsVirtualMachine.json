@@ -115,7 +115,7 @@
       "name": "[variables('networkInterfaceName')]",
       "location": "[parameters('location')]",
       "dependsOn": [
-        "[resourceId('Microsoft.Network/publicIPAddresses/', variables('publicIpAddressName'))]",
+        "[resourceId('Microsoft.Network/publicIPAddresses/', variables('publicIpAddressName'))]"
       ],
       "properties": {
         "ipConfigurations": [
