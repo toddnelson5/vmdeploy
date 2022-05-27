@@ -18,7 +18,6 @@
     },
     "adminPassword": {
       "type": "securestring",
-      "defaultValue": "C3ntr@lav3!!!",
       "metadata": {
         "description": "The admin password of the VM"
       }
