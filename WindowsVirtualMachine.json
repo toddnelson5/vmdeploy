@@ -11,7 +11,6 @@
     },
     "adminUsername": {
       "type": "string",
-      "defaultValue": "invictaadmin",
       "metadata": {
         "description": "The admin user name of the VM"
       }
@@ -45,11 +44,11 @@
       "type": "string",
       "defaultValue": "2019-Datacenter",
       "allowedValues": [
-        "2008-R2-SP1",
         "2012-Datacenter",
         "2012-R2-Datacenter",
         "2016-Datacenter",
-        "2019-Datacenter"
+        "2019-Datacenter",
+        "2022-Datacenter"
       ],
       "metadata": {
         "description": "The Windows version for the VM."
