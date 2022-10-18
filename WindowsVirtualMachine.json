@@ -11,12 +11,14 @@
     },
     "adminUsername": {
       "type": "string",
+      "value": "GEN-UNIQUE",
       "metadata": {
         "description": "The admin user name of the VM"
       }
     },
     "adminPassword": {
       "type": "securestring",
+      "value": "GEN-PASSWORD",
       "metadata": {
         "description": "The admin password of the VM"
       }

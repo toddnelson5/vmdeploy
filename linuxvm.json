@@ -41,13 +41,6 @@
           "description": "SSH Key or password for the Virtual Machine. SSH key is recommended."
         }
       },
-      "dnsLabelPrefix": {
-        "type": "string",
-        "defaultValue": "[toLower(format('{0}-{1}', parameters('vmName'), uniqueString(resourceGroup().id)))]",
-        "metadata": {
-          "description": "Unique DNS Name for the Public IP used to access the Virtual Machine."
-        }
-      },
       "ubuntuOSVersion": {
         "type": "string",
         "defaultValue": "18.04-LTS",
@@ -70,30 +63,30 @@
       },
       "vmSize": {
         "type": "string",
-        "defaultValue": "Standard_B2s",
+        "defaultValue": "Standard_B2ms",
         "metadata": {
           "description": "The size of the VM"
         }
       },
       "virtualNetworkName": {
         "type": "string",
-        "defaultValue": "vNet",
+        "defaultValue": "vnet_services_eastus",
         "metadata": {
           "description": "Name of the VNET"
         }
       },
       "subnetName": {
         "type": "string",
-        "defaultValue": "Subnet",
+        "defaultValue": "services_eastus",
         "metadata": {
           "description": "Name of the subnet in the virtual network"
         }
       },
-      "networkSecurityGroupName": {
+      "vnetResourceGroupName": {
         "type": "string",
-        "defaultValue": "SecGroupNet",
+        "defaultValue": "rg_vnet_services",
         "metadata": {
-          "description": "Name of the Network Security Group"
+          "description": "Vnet Resource Group Name."
         }
       }
     },
