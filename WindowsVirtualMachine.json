@@ -72,7 +72,7 @@
     },
     "vnetResourceGroupName": {
       "type": "string",
-      "defaultValue": "rg_VSTest_Vnet",
+      "defaultValue": "rg_vnet_service",
       "metadata": {
         "description": "Vnet Resource Group Name."
       }
