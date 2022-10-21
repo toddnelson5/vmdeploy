@@ -17,7 +17,6 @@
         }
       },
       "adminUsername": {
-        "value": "GEN-UNIQUE",
         "type": "string",
         "metadata": {
           "description": "Username for the Virtual Machine."
@@ -35,8 +34,7 @@
         }
       },
       "adminPasswordOrKey": {
-        "type": "secureString",
-        "value": "GEN-PASSWORD",
+        "type": "securestring",
         "metadata": {
           "description": "SSH Key or password for the Virtual Machine. SSH key is recommended."
         }
