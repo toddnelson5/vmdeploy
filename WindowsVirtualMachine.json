@@ -17,7 +17,6 @@
     },
     "adminPassword": {
       "type": "securestring",
-      "Value": "GEN-UNIQUE",
       "metadata": {
         "description": "The admin password of the VM"
       }
