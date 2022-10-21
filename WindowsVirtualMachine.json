@@ -11,14 +11,14 @@
     },
     "adminUsername": {
       "type": "string",
-      "value": "GEN-UNIQUE",
+      "defaultvalue": "airnetadmin",
       "metadata": {
         "description": "The admin user name of the VM"
       }
     },
     "adminPassword": {
       "type": "securestring",
-      "defaultvalue": "airnetadmin",
+      "value": "GEN-UNIQUE",
       "metadata": {
         "description": "The admin password of the VM"
       }
