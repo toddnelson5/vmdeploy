@@ -87,6 +87,7 @@
     "imagePublisher": "MicrosoftWindowsServer",
     "imageOffer": "WindowsServer",
     "OSDiskName": "[concat(toLower(parameters('virtualMachineName')),'OSDisk')]",
+    "DataDiskName": "[concat(toLower(parameters('virtualMachineName')),'DataDisk')]",
     "publicIPAddressType": "Dynamic",
     "subnetRef": "[resourceId(parameters('vnetResourceGroupName'), 'Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworkName'), parameters('subnetName'))]",
     "networkInterfaceName": "[toLower(parameters('virtualMachineName'))]",
