@@ -42,7 +42,7 @@
     },
     "windowsOSVersion": {
       "type": "string",
-      "defaultValue": "2019-Datacenter",
+      "defaultValue": "2022-Datacenter",
       "allowedValues": [
         "2012-Datacenter",
         "2012-R2-Datacenter",
@@ -91,7 +91,7 @@
     "subnetRef": "[resourceId(parameters('vnetResourceGroupName'), 'Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworkName'), parameters('subnetName'))]",
     "networkInterfaceName": "[toLower(parameters('virtualMachineName'))]",
     "publicIpAddressName": "[concat(toLower(parameters('virtualMachineName')),'-ip')]",
-    "storageAccountName": "[concat('bootdiags', uniqueString(resourceGroup().id))]"
+    "storageAccountName": "[concat('diags', uniqueString(resourceGroup().id))]"
   },
   "resources": [
    {
@@ -102,7 +102,7 @@
       "sku": {
         "name": "Standard_LRS"
       },
-      "kind": "Storage"
+      "kind": "StorageV2"
     },
     {
       "apiVersion": "2020-05-01",
@@ -162,14 +162,11 @@
         },
         "storageProfile": {
           "osDisk": {
-            "osType": "Windows",
             "name": "[variables('OSDiskName')]",
-            "caching": "ReadWrite",
             "createOption": "FromImage",
             "managedDisk": {
               "storageAccountType": "[parameters('diskType')]"
-            },
-            "diskSizeGB": 128
+            }
           },
           "diagnosticsProfile": {
             "bootDiagnostics": {
