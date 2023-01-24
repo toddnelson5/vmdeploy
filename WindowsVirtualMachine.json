@@ -90,9 +90,20 @@
     "publicIPAddressType": "Dynamic",
     "subnetRef": "[resourceId(parameters('vnetResourceGroupName'), 'Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworkName'), parameters('subnetName'))]",
     "networkInterfaceName": "[toLower(parameters('virtualMachineName'))]",
-    "publicIpAddressName": "[concat(toLower(parameters('virtualMachineName')),'-ip')]"
+    "publicIpAddressName": "[concat(toLower(parameters('virtualMachineName')),'-ip')]",
+    "storageAccountName": "format('bootdiags{0}', uniqueString(resourceGroup().id))"
   },
   "resources": [
+   {
+      "type": "Microsoft.Storage/storageAccounts",
+      "apiVersion": "2019-06-01",
+      "name": "[variables('storageAccountName')]",
+      "location": "[parameters('location')]",
+      "sku": {
+        "name": "Standard_LRS"
+      },
+      "kind": "Storage"
+    },
     {
       "apiVersion": "2020-05-01",
       "type": "Microsoft.Network/publicIPAddresses",
@@ -163,7 +174,7 @@
           "diagnosticsProfile": {
             "bootDiagnostics": {
               "enabled": true,
-              "storageUri": "[reference(resourceId('Microsoft.Storage/storageAccounts/', parameters('storageAccountName'))).primaryEndpoints.blob]"
+              "storageUri": "[reference(resourceId('Microsoft.Storage/storageAccounts/', variables('storageAccountName'))).primaryEndpoints.blob]"
             }
           },
           "imageReference": {
