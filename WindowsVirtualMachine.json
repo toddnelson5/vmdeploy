@@ -91,7 +91,7 @@
     "subnetRef": "[resourceId(parameters('vnetResourceGroupName'), 'Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworkName'), parameters('subnetName'))]",
     "networkInterfaceName": "[toLower(parameters('virtualMachineName'))]",
     "publicIpAddressName": "[concat(toLower(parameters('virtualMachineName')),'-ip')]",
-    "storageAccountName": "format('bootdiags{0}', uniqueString(resourceGroup().id))"
+    "storageAccountName": "[concat('bootdiags', uniqueString(resourceGroup().id))]"
   },
   "resources": [
    {
