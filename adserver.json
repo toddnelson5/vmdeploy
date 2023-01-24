@@ -171,7 +171,7 @@
           },
           "dataDisks": [
             {
-              "name": "datadisk1",
+              "name": "[variables('DataDiskName')]",
               "diskSizeGB": 128,
               "lun": 0,
               "caching": "None",
