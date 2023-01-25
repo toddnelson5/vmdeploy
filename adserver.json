@@ -81,6 +81,13 @@
       "metadata": {
         "description": "Location for all resources."
       }
+    },
+    "resourceTags": {
+      "type": "object",
+      "defaultValue": {
+        "Environment": "Services",
+        "Created_By": "Dataprise"
+      }
     }
   },
   "variables": {
@@ -100,6 +107,7 @@
       "apiVersion": "2019-06-01",
       "name": "[variables('storageAccountName')]",
       "location": "[parameters('location')]",
+      "tags": "[parameters('resourceTags')]",
       "sku": {
         "name": "Standard_LRS"
       },
@@ -114,6 +122,7 @@
       },
       "name": "[variables('publicIpAddressName')]",
       "location": "[parameters('location')]",
+      "tags": "[parameters('resourceTags')]",
       "properties": {
         "publicIPAddressVersion": "IPv4",
         "publicIPAllocationMethod": "[variables('publicIPAddressType')]"
@@ -124,6 +133,7 @@
       "type": "Microsoft.Network/networkInterfaces",
       "name": "[variables('networkInterfaceName')]",
       "location": "[parameters('location')]",
+      "tags": "[parameters('resourceTags')]",
       "dependsOn": [
         "[resourceId('Microsoft.Network/publicIPAddresses/', variables('publicIpAddressName'))]"
       ],
@@ -149,6 +159,7 @@
       "type": "Microsoft.Compute/virtualMachines",
       "name": "[parameters('virtualMachineName')]",
       "location": "[parameters('location')]",
+      "tags": "[parameters('resourceTags')]",
       "dependsOn": [
         "[resourceId('Microsoft.Network/networkInterfaces/', variables('networkInterfaceName'))]"
       ],
