@@ -39,12 +39,12 @@ param subnetName string = 'services_eastus'
 param vnetResourceGroupName string = 'rg_vnet_service'
 
 @description('Location for all resources.')
-param location string = resourceGroup().location
 param resourceTags object = {
   Environment: 'Services'
   Created_By: 'Dataprise'
 }
 
+var location = resourceGroup().location
 var imagePublisher = 'MicrosoftWindowsServer'
 var imageOffer = 'WindowsServer'
 var OSDiskName = '${toLower(virtualMachineName)}OSDisk'
@@ -53,6 +53,7 @@ var subnetRef = resourceId(vnetResourceGroupName, 'Microsoft.Network/virtualNetw
 var networkInterfaceName = toLower(virtualMachineName)
 var publicIpAddressName = '${toLower(virtualMachineName)}-ip'
 var storageAccountName = 'diags${uniqueString(resourceGroup().id)}'
+
 
 resource storageAccount 'Microsoft.Storage/storageAccounts@2019-06-01' = {
   name: storageAccountName
