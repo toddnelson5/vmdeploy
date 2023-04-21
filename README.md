@@ -10,3 +10,5 @@ Windows and Ubuntu Linux virtual machine deployments to Azure Commercial.  Templ
 # Ubuntu Linux Virtual Machine Deployment:
 [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Ftoddnelson5%2Fvmdeploy%2Fmaster%2Flinuxvm.json)
 
+# Active Directory Server Virtural Machine Deployment:
+[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2ftoddnelson5%2fvmdeploy%2fmaster%2fadserver_test.json)
