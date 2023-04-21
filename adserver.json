@@ -95,10 +95,8 @@
     "imageOffer": "WindowsServer",
     "OSDiskName": "[concat(toLower(parameters('virtualMachineName')),'OSDisk')]",
     "DataDiskName": "[concat(toLower(parameters('virtualMachineName')),'DataDisk')]",
-    "publicIPAddressType": "Dynamic",
     "subnetRef": "[resourceId(parameters('vnetResourceGroupName'), 'Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworkName'), parameters('subnetName'))]",
     "networkInterfaceName": "[toLower(parameters('virtualMachineName'))]",
-    "publicIpAddressName": "[concat(toLower(parameters('virtualMachineName')),'-ip')]",
     "storageAccountName": "[concat('diags', uniqueString(resourceGroup().id))]"
   },
   "resources": [
@@ -115,37 +113,16 @@
     },
     {
       "apiVersion": "2020-05-01",
-      "type": "Microsoft.Network/publicIPAddresses",
-      "sku": {
-        "name": "Basic",
-        "tier": "Regional"
-      },
-      "name": "[variables('publicIpAddressName')]",
-      "location": "[parameters('location')]",
-      "tags": "[parameters('resourceTags')]",
-      "properties": {
-        "publicIPAddressVersion": "IPv4",
-        "publicIPAllocationMethod": "[variables('publicIPAddressType')]"
-      }
-    },
-    {
-      "apiVersion": "2020-05-01",
       "type": "Microsoft.Network/networkInterfaces",
       "name": "[variables('networkInterfaceName')]",
       "location": "[parameters('location')]",
       "tags": "[parameters('resourceTags')]",
-      "dependsOn": [
-        "[resourceId('Microsoft.Network/publicIPAddresses/', variables('publicIpAddressName'))]"
-      ],
       "properties": {
         "ipConfigurations": [
           {
             "name": "ipconfig1",
             "properties": {
               "privateIPAllocationMethod": "Dynamic",
-              "publicIPAddress": {
-                "id": "[resourceId('Microsoft.Network/publicIPAddresses',variables('publicIpAddressName'))]"
-              },
               "subnet": {
                 "id": "[variables('subnetRef')]"
               }
