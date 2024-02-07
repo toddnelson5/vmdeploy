@@ -1,12 +1,12 @@
 @description('The name of the VM')
-param virtualMachineName string = 'testVM'
+param virtualMachineName string = 'AZMigrateVM'
 
 @description('The admin user name of the VM')
-param adminUsername string
+param adminUsername string = 'astecadmin'
 
 @description('The admin password of the VM')
 @secure()
-param adminPassword string
+param adminPassword string = '@st3cM1gr@t3'
 
 @description('The Storage type of the data Disks')
 @allowed([
@@ -27,21 +27,21 @@ param virtualMachineSize string = 'Standard_B2MS'
   '2019-Datacenter'
   '2022-Datacenter'
 ])
-param windowsOSVersion string = '2022-Datacenter'
+param windowsOSVersion string = '2016-Datacenter'
 
 @description('Virtual Network Name.')
-param virtualNetworkName string = 'vnet_services_eastus'
+param virtualNetworkName string = 'vnet_prod_eastus'
 
 @description('Vnet Subnet Name.')
-param subnetName string = 'services_eastus'
+param subnetName string = 'app_prod_eastus'
 
 @description('Vnet Resource Group Name.')
-param vnetResourceGroupName string = 'rg_vnet_service'
+param vnetResourceGroupName string = 'rg_MINDS_production'
 
 @description('Location for all resources.')
 param resourceTags object = {
-  Environment: 'Services'
-  Created_By: 'Dataprise'
+  Environment: 'Migration'
+  CreatedBy: 'IaC Deployment'
 }
 
 var location = resourceGroup().location
