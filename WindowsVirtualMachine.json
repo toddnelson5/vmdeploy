@@ -86,7 +86,7 @@
       "type": "object",
       "defaultValue": {
         "Environment": "Services",
-        "Created_By": "Dataprise"
+        "Created_By": "IaC Deployment"
       }
     }
   },
